@@ -34,12 +34,12 @@ while playing:  #Game starts
         food.refresh()
     #Detect collision with a wall
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280 or snake.head.ycor() > 280:
-        playing = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
     #Detect collision with its tail
     for seg in snake.snake[1:]:
         if snake.head.distance(seg) < 10:
-            playing = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
 screen.exitonclick()
